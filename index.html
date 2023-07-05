@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <!-- Import Overpass font -->
+  <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    /* Front-end Style Guide */
+    body {
+      font-family: 'Overpass', sans-serif;
+      font-weight: 400;
+      font-size: 15px;
+      background-color: hsl(216, 12%, 8%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; /* Added */
+    }
+    
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+    
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+
+    /* Colors */
+    :root {
+      --color-orange: hsl(25, 97%, 53%);
+      --color-white: hsl(0, 0%, 100%);
+      --color-light-grey: hsl(217, 12%, 63%);
+      --color-medium-grey: hsl(216, 12%, 54%);
+      --color-dark-blue: hsl(213, 19%, 18%);
+      --color-very-dark-blue: hsl(216, 12%, 8%);
+    }
+
+    /* Typography */
+    h2 {
+      font-weight: 700;
+      color: hsl(0, 0%, 100%);
+    }
+
+    /* Custom Styles for the Rating Component */
+    .rating-state,
+    .thankyou-state {
+      margin: 2rem;
+      border: 1px solid hsl(212, 18%, 14%);
+      padding: 2rem;
+      background-color: hsl(212, 18%, 14%);
+      border-radius: 3%;
+      width: 18.5rem;
+      height: 18.5rem;
+    }
+    
+    .thankyou-state {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .rating-state #rating-img, .rating-state #h2 {
+      text-align: left;
+    }
+
+    .rating-state {
+      position: relative;
+    }
+
+    #rating-img img {
+      padding: 0.8rem;
+      border-radius: 50%;
+      background-color: hsl(213, 19%, 18%);
+      margin-bottom: 2rem;
+      margin-top: 25px;
+      margin-left: 25px;
+    }
+
+    .just-down {
+      margin-top: 55px;
+    }
+
+    .rating-state p,
+    .thankyou-state p {
+      color: hsl(217, 12%, 63%);
+    }
+
+    .rating-state ul,
+    .thankyou-state ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .rating-state li,
+    .thankyou-state li {
+      margin: 0.5rem;
+    }
+
+    .btn {
+      background-color: hsl(213, 19%, 18%);
+      color: hsl(217, 12%, 63%);
+      font-weight: 700;
+      border: none;
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: hsl(217, 12%, 63%);
+      color: hsl(0, 0%, 100%);
+    }
+
+    .btn:active{
+      background-color: hsl(25, 97%, 53%);
+      color: hsl(0, 0%, 100%);
+    }
+
+    .btn-submit {
+      background-color: var(--color-orange);
+      color: var(--color-white);
+      font-weight: 700;
+      border: none;
+      border-radius: 2rem;
+      padding: 1rem 2rem;
+      margin-top: 3px;
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--color-white);
+      color: hsl(25, 97%, 53%);
+    }
+
+    .btn-submit:active{
+      background-color: hsl(0, 4%, 89%);
+      color: hsl(25, 97%, 53%);
+    }
+
+    #rated-statement {
+      border: 1px solid hsl(213, 19%, 18%);
+      background-color: hsl(213, 19%, 18%);
+      border-radius: 1rem;
+      padding: 8px;
+      color: hsl(25, 97%, 53%);
+    }
+
+    .thankyou-state h2 {
+      margin-bottom: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Rating state start -->
+  <div class="rating-state">
+    <div id="rating-img">
+      <img src="images\icon-star.svg" alt="star" style="border-radius: 50%; position: absolute; top: 0; left: 0;">
+    </div>
+    <div class="just-down">
+      <h2>How did we do?</h2>
+    
+    <p id="paragraph">
+      Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!
+    </p>
+    
+    <ul>
+      <li><button class="btn">1</button></li>
+      <li><button class="btn">2</button></li>
+      <li><button class="btn">3</button></li>
+      <li><button class="btn">4</button></li>
+      <li><button class="btn">5</button></li>
+    </ul>
+    
+    <button class="btn-submit">SUBMIT</button>
+    </div>
+    
+  </div>
+  <!-- Rating state end -->
+
+  <!-- Thank you state start -->
+  <div class="thankyou-state">
+    <div id="thankyou-img">
+      <img src="./images/illustration-thank-you.svg" alt="thank-you"/>
+    </div>
+    
+    <p id="rated-statement">
+      You selected
+        <span id="selected-rating" style="display: inline-block; margin: 0 0.3rem">
+          1
+        </span>
+      out of 5
+    </p>
+
+    <h2>Thank you!</h2>
+
+    <p id="paragraph">
+      We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!
+    </p>
+  </div>
+  <!-- Thank you state end -->
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Son</a>.
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
